@@ -1,11 +1,8 @@
 import NavBar from "../components/navBar";
 
 import useUserStore from "../store/useUserStore";
-import { useNavigate } from "react-router-dom";
 
 import profile from "../image/profile-image.svg";
-import {toast} from "react-toastify";
-import {useEffect} from "react";
 
 const MyPage = () => {
     const { user } = useUserStore();
