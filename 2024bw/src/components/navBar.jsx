@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { useAuth } from '../assets/AuthContext'; // Import the useAuth hook
 
 const Nav = styled.nav`
     height: 45px;
@@ -8,12 +9,12 @@ const Nav = styled.nav`
     position: fixed;
     width: 100%;
     top: 0;
-    left: 0; /* 화면 왼쪽에 붙이기 */
+    left: 0;
     background-color: white;
     display: flex;
     flex-direction: row;
     z-index: 1;
-    box-sizing: border-box; /* 패딩과 보더가 포함된 너비 계산 */
+    box-sizing: border-box;
 
     label {
         cursor: pointer;
@@ -41,10 +42,10 @@ const Nav = styled.nav`
         align-items: center;
         width: 100%;
         margin-left: auto;
-        flex-grow: 1; /* 남은 공간 모두 채우기 */
+        flex-grow: 1;
 
         #list {
-            margin-right: 20px; /* label 사이 간격 */
+            margin-right: 20px;
             &:hover {
                 color: #636363;
             }
@@ -60,17 +61,30 @@ const Nav = styled.nav`
 `;
 
 export default function NavBar() {
+    const { isAuthenticated, logout } = useAuth(); // Access authentication state
     let navigate = useNavigate();
+
+    const handleLoginClick = () => {
+        if (isAuthenticated) {
+            // If already authenticated, go to My Page
+            navigate("/Mypage");
+        } else {
+            // If not authenticated, go to Login page
+            navigate("/login");
+        }
+    };
 
     return (
         <Nav>
             <div id="home">
-                <label id="ib" onClick={() => { navigate("/home") }}>IB</label>
+                <label id="ib" onClick={() => { navigate("/") }}>IB</label>
             </div>
             <div id="text">
-                <label id="list" onClick={() => { navigate("/board/group") }}>게시판</label>
-                <label id="login" onClick={() => { navigate("/login") }}>로그인</label>
+                <label id="list" onClick={() => { navigate("/list") }}>게시판</label>
+                <label id="login" onClick={handleLoginClick}>
+                    {isAuthenticated ? "마이페이지" : "로그인"}
+                </label>
             </div>
         </Nav>
-    )
+    );
 }

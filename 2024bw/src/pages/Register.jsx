@@ -49,7 +49,7 @@ const Register = () => {
                 <span className="logotext">IB</span>
             </div>
             <div className="container">
-                <div className="header">
+                <div className="reg_header">
                     <div className="text">회원가입</div>
                     <div className="underline"></div>
                 </div>

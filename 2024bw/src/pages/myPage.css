@@ -1,3 +1,12 @@
+/* body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FFFFFF;
+    padding: 0;
+    margin: 0;
+    min-width: 920px;
+} */
 .header {
     position: absolute;
     top: 30px;
