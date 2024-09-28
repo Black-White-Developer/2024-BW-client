@@ -6,7 +6,8 @@ import { useAuth } from '../assets/AuthContext';
 import axiosInstance from "../util/axiosInstance";
 import Cookies from "js-cookie";
 import {toast} from "react-toastify";
-import useUserStore from "../store/useUserStore"; // Import the useAuth hook
+import useUserStore from "../store/useUserStore";
+import axios from "axios"; // Import the useAuth hook
 
 const Wrapper = styled.div`
     display: flex;
@@ -44,8 +45,18 @@ const Login = () => {
         if (response?.data?.content?.token) {
             const token = response.data.content.token;
             Cookies.set('token', token);
-            setUser(response.data.content.user);
             axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+
+            const response2 = await axiosInstance.get('/auth/me', {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+
+            if (response2?.data?.content?.user) {
+                setUser(response2.data.content.user);
+            }
+
             navigate('/');
             toast.success('로그인에 성공했습니다.');
         }

@@ -1,6 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { useAuth } from '../assets/AuthContext'; // Import the useAuth hook
+import { useAuth } from '../assets/AuthContext';
+import useUserStore from "../store/useUserStore";
+import Cookies from "js-cookie";
+import axiosInstance from "../util/axiosInstance"; // Import the useAuth hook
 
 const Nav = styled.nav`
     height: 45px;
@@ -57,15 +60,30 @@ const Nav = styled.nav`
                 color: #636363;
             }
         }
+        
+        #logout {
+            margin-right: 20px;
+            &:hover {
+                color: #636363;
+            }
+        }
     }
 `;
 
 export default function NavBar() {
-    const { isAuthenticated, logout } = useAuth(); // Access authentication state
     let navigate = useNavigate();
 
+    const { user } = useUserStore();
+
+    const onLogout = () => {
+        useUserStore.setState({ user: null });
+        Cookies.remove("token");
+        axiosInstance.defaults.headers["Authorization"] = null;
+        navigate("/");
+    }
+
     const handleLoginClick = () => {
-        if (isAuthenticated) {
+        if (user) {
             // If already authenticated, go to My Page
             navigate("/Mypage");
         } else {
@@ -82,8 +100,9 @@ export default function NavBar() {
             <div id="text">
                 <label id="list" onClick={() => { navigate("/list") }}>게시판</label>
                 <label id="login" onClick={handleLoginClick}>
-                    {isAuthenticated ? "마이페이지" : "로그인"}
+                    {user ? "마이페이지" : "로그인"}
                 </label>
+                {user && <label id="logout" onClick={onLogout}>로그아웃</label>}
             </div>
         </Nav>
     );
