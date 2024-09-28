@@ -1,0 +1,107 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right bottom, #5487FF 30%,#93b3ff 40%, #ffffff 60%, #FFFFFF 100%);
+    padding: 0;
+    margin: 0;
+    height: 100vh; /* Viewport 높이를 100%로 설정 */
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 15px;
+}
+
+.logotext {
+    margin-left: 1.5%;
+    color: #fff;
+    font-weight: 1000;
+    font-size: xx-large;
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* 세로 정렬 */
+    align-items: center;
+    width: 350px;
+    height: 300px;
+    background-color: rgba(236, 227, 206, 0.6);
+    border-radius: 12px;
+    border: 1px solid #ECE3CE;
+    padding: 70px;
+    /* 주석 처리된 부분 삭제 */
+}
+
+.header {
+    margin-top: -30px;
+    color: #fff;
+    font-weight: 1000;
+    font-size: 17px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+} 
+
+.underline {
+    width: 130px;
+    height: 2.5px;
+    background-color: #fff;
+    border-radius: 9px;
+}
+
+.inputs {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input {
+    display: flex;
+    align-items: center;
+    width: 300px;
+    height: 35px;
+    background: transparent;
+    border: 1px solid #ECE3CE;
+    border-radius: 12px;
+}
+
+.input input {
+    padding: 10px;
+    height: 30px;
+    width: 200px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 15px;
+}
+
+.submit-container {
+    display: flex;
+    justify-content: center; /* 중앙 정렬 */
+    margin: 40px auto;
+}
+
+input::placeholder {
+    color: #fff;
+    font-weight: 800;
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 40px;
+    color: #fff;
+    background: #4F6F52;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
