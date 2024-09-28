@@ -5,7 +5,6 @@ import Mypage from './pages/myPage';
 import Main from './pages/Main';
 import Write from './pages/Write';
 import List from './pages/List';
-import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from './assets/AuthContext'; // Import the AuthProvider
 import './App.css';
 
