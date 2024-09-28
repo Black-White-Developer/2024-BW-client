@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import "./Write.css";
 import NavBar from "../components/navBar";
-import Logo from "../components/logoBar";
 
 const Wrapper = styled.div`
   background-color: white;
@@ -12,6 +11,23 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: flex-start;
   margin-top: 90px;
+`;
+
+const Banner = styled.div`
+  margin-top: 1%;
+  width: 95vw;
+  height: 10vh;
+  padding: 1%;
+  background: #bcd0ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+
+  text {
+    font-size: 50px;
+    font-weight: 600;
+  }
 `;
 
 const Write = () => {
@@ -28,7 +44,9 @@ const Write = () => {
     <>
       <Wrapper>
         <NavBar />
-        <Logo />
+        <Banner>
+          <text>IB뱅크</text>
+        </Banner>
         <div className="writeall">
           <div className="title">
             <input
