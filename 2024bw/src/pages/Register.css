@@ -30,11 +30,10 @@
     flex-direction: column; /* 세로 정렬 */
     align-items: center;
     width: 350px;
-    height: 400px;
     background-color: rgba(238, 243, 255, 0.8);
     border-radius: 12px;
     border: 1px solid #9ab6fd;
-    padding: 50px;
+    padding: 50px 50px 0px 50px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
     margin-top: 150px; /* 로고와 박스 사이의 간격 조정 */
 }
@@ -69,20 +68,19 @@
 
 .input {
     display: flex;
+    flex-flow: column;
     align-items: center;
-    width: 300px;
-    height: 35px;
+    /*height: 40px;*/
     background: transparent;
-    border: 1px solid #3d3b9d;
-    border-radius: 12px;
 }
 
 .input input {
-    padding: 10px;
-    height: 30px;
-    width: 200px;
+    padding: 15px 10px;
+    width: 100%;
+    height: 40px;
+    border: 1px solid #3d3b9d;
+    border-radius: 12px;
     background: transparent;
-    border: none;
     outline: none;
     color: #3d3b9d;
     font-size: 15px;
@@ -91,7 +89,7 @@
 .submit-container {
     display: flex;
     justify-content: center;
-    margin: 30px auto;
+    margin: 20px;
 }
 
 input::placeholder {
@@ -102,9 +100,10 @@ input::placeholder {
 .error {
     color: red;
     font-size: 12px;
-    margin-top: 5px;
+    margin-top: 4px;
     display: block;
     font-family: Arial, sans-serif;
+    align-self: start;
 }
 
 

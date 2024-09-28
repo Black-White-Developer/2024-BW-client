@@ -26,9 +26,8 @@
 .login_container {
     border: 1px solid #9ab6fd;
     width: 400px;
-    height: 300px;
     border-radius: 12px;
-    padding: 30px;
+    padding: 30px 30px 10px 30px;
     display: flex;
     flex-direction: column;
     background-color: rgba(238, 243, 255, 0.8);
@@ -67,6 +66,7 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
+    margin-top: 32px;
 }
 
 .login_input {
@@ -91,7 +91,7 @@
 }
 
 .login_submit-container {
-    margin: auto;
+    margin-top: 20px;
     align-items: center;
     display: flex;
     flex-direction: column;

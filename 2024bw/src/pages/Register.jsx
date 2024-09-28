@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import './Register.css';
 import { useNavigate } from "react-router-dom";
+import axiosInstance from "../util/axiosInstance";
+import {toast} from "react-toastify";
 
 const Wrapper = styled.div`
     display: flex;
@@ -19,6 +21,9 @@ const Register = () => {
     const [confirmPw, setConfirmPw] = useState('');
     const [nickname, setNickname] = useState('');
     const [level, setLevel] = useState('');
+    const [verifyCode, setVerifyCode] = useState('');
+    const [isSend, setIsSend] = useState(false);
+    const [isVerified, setIsVerified] = useState(false);
     const [errors, setErrors] = useState({});
     
     const navigate = useNavigate();
@@ -47,6 +52,7 @@ const Register = () => {
         if (!level || ![1, 2, 3].includes(parseInt(level))) {
             validationErrors.level = "레벨을 1, 2, 3 중 하나로 입력하세요.";
         }
+        if (!verifyCode) validationErrors.verifyCode = "인증 코드를 입력하세요.";
 
         return validationErrors;
     };
@@ -61,9 +67,42 @@ const Register = () => {
             setErrors(validationErrors);
             return;
         }
-        // If no errors, proceed with navigation
-        navigate("/");
+
+        const response = await axiosInstance.post('/auth/register', {
+            email,
+            password: pw,
+            nickname,
+            level: parseInt(level),
+            verifyCode
+        });
+
+        if (response) {
+            toast.success('회원가입이 완료되었습니다.');
+            navigate('/login');
+        }
     };
+
+    const onSendClick = async () => {
+        const response =  await axiosInstance.post('/auth/verify-code/send', {email})
+
+        if (response) {
+            setIsSend(true);
+            toast.success('인증 코드가 전송되었습니다.');
+        }
+    }
+
+    const onVerifyClick = async () => {
+        const response = await axiosInstance.post('/auth/verify-code/check', {email, verifyCode});
+
+        if (response) {
+            if (response?.data?.content?.isVerified) {
+                setIsVerified(true);
+                toast.success('인증 코드가 확인되었습니다.');
+            } else {
+                toast.error('인증 코드가 일치하지 않습니다.');
+            }
+        }
+    }
 
     return (
         <React.Fragment>
@@ -77,7 +116,7 @@ const Register = () => {
                         <div className="underline"></div>
                     </div>
                     <div className="inputs">
-                        <div className="input">
+                        <div className="input w-[300px]">
                             <input
                                 type="text"
                                 placeholder="닉네임"
@@ -86,16 +125,36 @@ const Register = () => {
                             />
                             {errors.nickname && <span className="error">{errors.nickname}</span>}
                         </div>
-                        <div className="input">
-                            <input
-                                type="email"
-                                placeholder="이메일"
-                                onChange={(e) => setEmail(e.target.value)}
-                                required
-                            />
-                            {errors.email && <span className="error">{errors.email}</span>}
+                        <div className="flex w-[300px]">
+                            <div className="input w-[220px]">
+                                <input
+                                    type="email"
+                                    placeholder="이메일"
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    required
+                                    disabled={isVerified}
+                                />
+                                {errors.email && <span className="error">{errors.email}</span>}
+                            </div>
+                                <button className="px-4 py-2 bg-blue-500 text-white text-sm rounded-md ml-2 disabled:opacity-50"
+                                        onClick={onSendClick}
+                                disabled={isVerified}>전송</button>
                         </div>
-                        <div className="input">
+                        {isSend && !isVerified && (
+                            <div className="flex w-[300px]">
+                                <div className="input w-[220px]">
+                                    <input
+                                        type="verifyCode"
+                                        placeholder="인증 코드"
+                                        onChange={(e) => setVerifyCode(e.target.value)}
+                                        required
+                                    />
+                                    {errors.verifyCode && <span className="error">{errors.verifyCode}</span>}
+                                </div>
+                                <button className="px-4 py-2 bg-blue-500 text-white text-sm rounded-md ml-2" onClick={onVerifyClick}>확인</button>
+                            </div>
+                        )}
+                        <div className="input w-[300px]">
                             <input
                                 type="password"
                                 maxLength={15}
@@ -105,7 +164,7 @@ const Register = () => {
                             />
                             {errors.pw && <span className="error">{errors.pw}</span>}
                         </div>
-                        <div className="input">
+                        <div className="input w-[300px]">
                             <input
                                 type="password"
                                 maxLength={15}
@@ -115,7 +174,7 @@ const Register = () => {
                             />
                             {errors.confirmPw && <span className="error">{errors.confirmPw}</span>}
                         </div>
-                        <div className="input">
+                        <div className="input w-[300px]">
                             <input
                                 type="number"
                                 min="1"
