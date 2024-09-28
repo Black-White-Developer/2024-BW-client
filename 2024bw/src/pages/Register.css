@@ -20,6 +20,9 @@
     color: #ffffff; /* 로고 텍스트 색상 */
     font-weight: 1000;
     font-size: xx-large;
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 .container {

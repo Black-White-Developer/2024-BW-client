@@ -51,6 +51,10 @@ const Register = () => {
         return validationErrors;
     };
 
+    const goToMain = () => {
+        navigate('/');
+    }
+
     const onSubmit = async () => {
         const validationErrors = validateInputs();
         if (Object.keys(validationErrors).length > 0) {
@@ -65,7 +69,7 @@ const Register = () => {
         <React.Fragment>
             <Wrapper className="register-container-wrapper">
                 <div className="logo">
-                    <span className="logotext">IB</span>
+                    <span className="logotext" onClick={goToMain}>IB</span>
                 </div>
                 <div className="container">
                     <div className="reg_header">

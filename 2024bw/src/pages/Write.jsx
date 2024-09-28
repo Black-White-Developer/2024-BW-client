@@ -2,7 +2,14 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import "./Write.css";
 import NavBar from "../components/navBar";
-import Logo from "../components/logoBar";
+import { useNavigate } from "react-router-dom";
+
+// const Wrapper = styled.div`
+//     width: 100vw; /* 부모는 뷰포트 길이로 계산됨 */
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center; /* 세로 가운데 정렬 */
+// `;
 
 const Wrapper = styled.div`
   background-color: white;
@@ -10,11 +17,32 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  margin-top: 90px;
+  align-items: center;
+  margin-top: 45px;
 `;
 
+const Banner = styled.div`
+  margin-top: 1%;
+  width: 95vw;
+  height: 10vh;
+  padding: 1%;
+  background: #bcd0ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+
+  text {
+    font-size: 50px;
+    font-weight: 600;
+  }
+`;
+
+
 const Write = () => {
+
+  const navigate = useNavigate();
+
   const [title, setTitle] = useState(""); // 제목 상태
   const [note, setNote] = useState(""); // 노트 상태
 
@@ -23,12 +51,15 @@ const Write = () => {
     e.preventDefault(); // 기본 제출 동작 방지
     console.log("제목:", title);
     console.log("노트 내용:", note);
+    navigate('/Detail/{id}')
   };
   return (
     <>
       <Wrapper>
         <NavBar />
-        <Logo />
+        <Banner>
+          <text>IB</text>
+        </Banner>
         <div className="writeall">
           <div className="title">
             <input

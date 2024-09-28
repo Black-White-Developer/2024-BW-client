@@ -59,7 +59,7 @@ const Login = () => {
         <React.Fragment>
             <Wrapper className="login_container-wrapper">
                 <div className="login_logo">
-                    <span className="login_logotext">IB</span>
+                    <span className="login_logotext" onClick={goToMain}>IB</span>
                 </div>
                 <div className="login_container">
                     <div className="login_header">

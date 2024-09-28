@@ -1,12 +1,13 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Register from './pages/Register';
-import Login from './pages/Login';
-import Mypage from './pages/myPage';
-import Main from './pages/Main';
-import Write from './pages/Write';
-import List from './pages/List';
-import { AuthProvider } from './assets/AuthContext'; // Import the AuthProvider
-import './App.css';
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import Mypage from "./pages/myPage";
+import Main from "./pages/Main";
+import Write from "./pages/Write";
+import List from "./pages/List";
+import Detail from "./pages/Detail";
+import { AuthProvider } from "./assets/AuthContext"; // Import the AuthProvider
+import "./App.css";
 
 import 'react-toastify/dist/ReactToastify.css';
 import {Bounce, ToastContainer} from "react-toastify";
@@ -38,9 +39,12 @@ const router = createBrowserRouter([
   },
   {
     path: "/list",
-    element: <List />
-  }
-
+    element: <List />,
+  },
+  {
+    path: "/Detail",
+    element: <Detail />,
+  },
 ]);
 
 function App() {
@@ -68,17 +72,17 @@ function App() {
     <AuthProvider> {/* Wrap the RouterProvider with AuthProvider */}
       <RouterProvider router={router} /> {/* Correctly use RouterProvider here */}
       <ToastContainer
-          position="top-right"
-          autoClose={3000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss={false}
-          draggable
-          pauseOnHover
-          theme="light"
-          transition={Bounce}
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover
+        theme="light"
+        transition={Bounce}
       />
     </AuthProvider>
   );
