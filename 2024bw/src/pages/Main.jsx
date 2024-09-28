@@ -1,83 +1,107 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { motion, useTransform, useViewportScroll } from "framer-motion"
-import './Main.css'
+import './Main.css';
+import { motion } from "framer-motion";
 import NavBar from "../components/navBar";
-import { useNavigate } from "react-router-dom";
 
 const Wrapper = styled.div`
-    width: 99vw; //부모는 뷰포트 길이로 계산됨
+    background-color: #93b3ff;
+    width: 100vw; // 부모는 뷰포트 길이로 계산됨
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
 `;
 
-
 const Banner = styled.div`
-    margin-top: 45px;
-    background-color: #000;
-    color: white;
+    // margin-top: 45px; /* NavBar의 높이만큼 margin 추가 */
+    background: linear-gradient(to bottom, #ffffff, #93b3ff); /* 그라데이션 적용 */
+    color: #3A70FF;
     width: 100%;
-    height: 100vh;
+    height: 50vh; /* 높이를 줄임 */
     display: flex;
     flex-direction: row;
-    div{
+    justify-content: center; /* 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    
+    div {
         text-align: center;
         display: flex;
         flex-direction: column;
     }
-    .box1{
+
+    .box1 {
         width: 35%;
         align-items: center;
         padding-left: 10%;
-        img{
+
+        img {
             margin-top: 35%;
         }
-        text{
+
+        text {
             font-size: 120px;
             font-weight: 600;
         }
     }
-    #box2{
-        width: 160%;
-        font-size: 45px;
-        font-weight: 600;
-        margin: 50% 20% 5% -10%;
-        #txt{
-            padding-left: 60%;
-        }
 
+    #box2 {
+        width: 50%; /* 가운데로 배치되도록 너비 조정 */
+        font-size: 40px;
+        font-weight: 600;
+        color: #000; /* 글자 색을 검은색으로 변경 */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* 가운데 정렬 */
+        justify-content: center;
+        margin: 0; /* 불필요한 마진 제거 */
+        
+        #txt {
+            font-size: 35px; /* 하위 텍스트 크기 조정 */
+            padding-left: 0;
+        }
     }
-    #box3{
+
+    #box3 {
         font-weight: 600;
         width: 160%;
         font-size: 25px;
     }
-    
 `;
-// const { scrollYProgress } = useViewportScroll()
-// const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
 const Main = () => {
     return (
         <Wrapper>
-            <NavBar/>
+            <NavBar />
             <Banner>
-            <motion.div
-                    // style={{ scale }}
-                    initial={{opacity: 0, x: -200}}
-                    whileInView={{opacity: 1, x: 0}}
-                    viewport={{once:false}}
+                <motion.div
+                    initial={{ opacity: 0, x: -200 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: false }}
                     transition={{
                         ease: "easeInOut",
-                        duration: 1
+                        duration: 1,
                     }}
-                    className="box1">
+                    className="box1"
+                >
                     <text>IB</text>
+                </motion.div>
+                <motion.div
+                    initial={{ opacity: 0, x: 60 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: false }}
+                    transition={{
+                        ease: "easeInOut",
+                        duration: 1,
+                    }}
+                    id="box2"
+                >
+                    <text>개발자 여러분들의 아이디어를</text>           
+                    <text id="txt">도와드립니다.</text> 
                 </motion.div>
             </Banner>
         </Wrapper>
-    )
+    );
 }
 
 export default Main;
