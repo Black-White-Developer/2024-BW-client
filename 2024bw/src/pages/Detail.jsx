@@ -88,7 +88,7 @@ export default function Detail() {
         <div className="comment-title" />
         <div className="" />
       </div>
-
+      <br />
       <div className="comment">댓글({comments.length})</div>
 
       <div>
