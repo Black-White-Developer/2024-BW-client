@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import './Login.css';
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from '../assets/AuthContext'; // Import the useAuth hook
+import { useAuth } from '../assets/AuthContext';
+import axiosInstance from "../util/axiosInstance";
+import Cookies from "js-cookie";
+import {toast} from "react-toastify";
+import useUserStore from "../store/useUserStore"; // Import the useAuth hook
 
 const Wrapper = styled.div`
     display: flex;
@@ -17,7 +21,8 @@ const Wrapper = styled.div`
 
 const Login = () => {
     const navigate = useNavigate();
-    const { login } = useAuth(); // Get the login function from AuthContext
+
+    const { setUser } = useUserStore();
 
     const [inputEmail, setInputEmail] = useState("");
     const [inputPw, setInputPw] = useState("");
@@ -30,9 +35,20 @@ const Login = () => {
         setInputPw(e.target.value);
     };
 
-    const goToMain = () => {
-        login(); // Call the login function from context
-        navigate('/'); // Navigate to the main page
+    const onLogin = async () => {
+        const response = await axiosInstance.post('/auth/login', {
+            email: inputEmail,
+            password: inputPw
+        });
+
+        if (response?.data?.content?.token) {
+            const token = response.data.content.token;
+            Cookies.set('token', token);
+            setUser(response.data.content.user);
+            axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+            navigate('/');
+            toast.success('로그인에 성공했습니다.');
+        }
     };
 
     const goToRegister = () => {
@@ -59,7 +75,7 @@ const Login = () => {
                         </div>
                     </div>
                     <div className="login_submit-container">
-                        <button className="login_submit" onClick={goToMain}>로그인</button>
+                        <button className="login_submit" onClick={onLogin}>로그인</button>
                         <button className="register" onClick={goToRegister}>회원가입</button>
                     </div>
                 </div>
