@@ -4,7 +4,7 @@ run-name: Deploy
 on:
   push:
     branches:
-      - develop
+      - main
 
 concurrency:
   group: deploy-${{ github.ref_name }}

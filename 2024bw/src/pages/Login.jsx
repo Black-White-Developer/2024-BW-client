@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const Wrapper = styled.div `
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background: linear-gradient(to right bottom, #5487FF 30%,#93b3ff 40%, #bed1ff 60%, #FFFFFF 100%);
@@ -81,7 +82,7 @@ const Login = () => {
     return (
 
         <React.Fragment>
-            <Wrapper>
+            <Wrapper className="login_container-wrapper">
             <div className="login_logo">
                 <span className="login_logotext">IB</span>
             </div>

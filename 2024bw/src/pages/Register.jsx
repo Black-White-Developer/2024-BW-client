@@ -44,7 +44,7 @@ const Register = () => {
 
     return (
         <React.Fragment>
-            <Wrapper>
+            <Wrapper className="register-container-wrapper">
             <div className="logo">
                 <span className="logotext">IB</span>
             </div>
