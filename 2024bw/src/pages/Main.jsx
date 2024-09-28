@@ -114,7 +114,7 @@ const Main = () => {
   const navigate = useNavigate();
 
   const goToWrite = () => {
-    navigate("/"); // 게시글 등록 페이지로 이동
+    navigate("/Write"); // 게시글 등록 페이지로 이동
   };
 
   const boxVariants = {
