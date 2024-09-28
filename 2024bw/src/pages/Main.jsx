@@ -114,7 +114,7 @@ const Main = () => {
   const navigate = useNavigate();
 
   const goToWrite = () => {
-    navigate("/"); // 게시글 등록 페이지로 이동
+    navigate("/Write"); // 게시글 등록 페이지로 이동
   };
 
   const boxVariants = {
@@ -155,7 +155,8 @@ const Main = () => {
           </motion.div>
         </div>
       </Banner>
-      <WriteBtn onClick={goToWrite}>게시글 등록</WriteBtn> {/* 버튼 텍스트 추가 */}
+      <WriteBtn onClick={goToWrite}>게시글 등록</WriteBtn>{" "}
+      {/* 버튼 텍스트 추가 */}
       <Event>
         <motion.text
           variants={boxVariants}
