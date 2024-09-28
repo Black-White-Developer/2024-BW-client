@@ -94,6 +94,7 @@ const Event = styled.div`
 `;
 
 const WriteBtn = styled.button`
+  flex: none !important;
   background-color: #5487FF; /* 파란색 계열 */
   color: #fff; /* 텍스트 색상 흰색 */
   border: none; /* 테두리 없음 */
