@@ -1,4 +1,7 @@
 .writeall {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   width: 100%;
   padding: 20px 40px;
   box-sizing: border-box;
@@ -25,6 +28,8 @@
 }
 
 .note {
+  display: flex;
+  align-items: center;
   width: 100%;
   margin: 0;
   :focus {

@@ -4,6 +4,13 @@ import "./Detail.css";
 import ProfileImageSrc from "../image/profile-image.svg";
 import { useNavigate } from "react-router-dom";
 
+const Wrapper = styled.div`
+    width: 100vw; /* 부모는 뷰포트 길이로 계산됨 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`;
+
 const Banner = styled.div`
   margin-top: 1%;
   width: 95vw;
@@ -20,42 +27,36 @@ const Banner = styled.div`
     font-weight: 600;
   }
 `;
+
 export default function Detail() {
   const navigate = useNavigate();
   const goBack = () => {
     navigate(-1); // 이전 페이지로 이동
   };
+
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
-  // const [accountName, setAccountName] = useState("");
-  // const [accountLevel, setAccountLevel] = useState("");
+  const fixedNickname = "하이"; // 고정된 닉네임
+  const [isHeartActive, setIsHeartActive] = useState(false);
 
   const handleCommentChange = (e) => {
-    setComment(e.target.value); // 입력 필드의 값을 상태로 업데이트
+    setComment(e.target.value); // 댓글 입력 값 업데이트
   };
 
-  // 댓글 제출 핸들러 (제출 버튼 클릭 시 호출)
   const handleCommentSubmit = (e) => {
-    e.preventDefault(); // 폼 제출 시 페이지가 새로고침되지 않도록 함
+    e.preventDefault(); // 폼 제출 시 새로고침 방지
     if (comment.trim() !== "") {
-      // 빈 댓글은 추가하지 않음
-      setComments([...comments, comment]); // 기존 댓글 목록에 새로운 댓글 추가
-      setComment(""); // 입력 필드 초기화
+      setComments([...comments, { nickname: fixedNickname, text: comment }]); // 댓글과 고정 닉네임 저장
+      setComment(""); // 댓글 입력창 초기화
     }
   };
-
-  // Enter 키로 댓글을 제출하는 핸들러
-  const handleKeyPress = (e) => {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault(); // 엔터로 줄바꿈이 아닌 댓글 제출을 처리
-      handleCommentSubmit(e);
-    }
+  const handleHeartClick = () => {
+    setIsHeartActive((prev) => !prev); // 하트 상태 토글
   };
-
   return (
-    <>
+    <Wrapper>
       <Banner>
-        <text>IB뱅크</text>
+        <text>IB</text>
       </Banner>
       <br />
       <div>
@@ -78,36 +79,46 @@ export default function Detail() {
         </div>
       </div>
       <div className="menu">
-        <button className="heart">❤️</button>
-        <button className="back" onClick={goBack}>
+        <button
+            className={`heart ${isHeartActive ? "active" : ""}`}
+            onClick={handleHeartClick}
+            isActive={isHeartActive}
+            id="detail_button"
+          >
+          ❤️
+          </button>
+        <button className="back" onClick={goBack} id="detail_button">
           뒤로가기
         </button>
-        <button className="apply">매칭 신청</button>
+        <button className="apply" id="detail_button">매칭 신청</button>
       </div>
-      <div>
-        <div className="comment-title" />
-        <div className="" />
-      </div>
-      <br />
-      <div className="comment">댓글({comments.length})</div>
+      <div className="comment-section">
+        <div className="comment">댓글({comments.length})</div>
 
-      <div>
+        {/* 댓글 목록 */}
         {comments.map((cmt, index) => (
           <div key={index} className="commentbox">
-            {cmt}
+            <div className="comment-nickname">{cmt.nickname}</div>
+            <div className="comment-text">{cmt.text}</div>
           </div>
         ))}
+
+        {/* 댓글 입력 폼 */}
+        <form onSubmit={handleCommentSubmit} className="comment-form">
+          <textarea
+            value={comment}
+            onChange={handleCommentChange}
+            placeholder="댓글을 입력하세요"
+            rows="4"
+            cols="50"
+            className="comment-input"
+            required
+          ></textarea>
+          <button type="submit" className="submit-comment" id="detail_button">
+            댓글 달기
+          </button>
+        </form>
       </div>
-      <div onSubmit={handleCommentSubmit}>
-        <textarea
-          value={comment}
-          onKeyPress={handleKeyPress} // 엔터 키로 제출
-          onChange={handleCommentChange}
-          placeholder="댓글을 입력하세요"
-          rows="4"
-          cols="50"
-        ></textarea>
-      </div>
-    </>
+    </Wrapper>
   );
 }
