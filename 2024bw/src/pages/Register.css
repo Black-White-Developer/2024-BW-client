@@ -96,6 +96,15 @@ input::placeholder {
     font-weight: 800;
 }
 
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+    font-family: Arial, sans-serif;
+}
+
+
 .submit {
     display: flex;
     justify-content: center;
