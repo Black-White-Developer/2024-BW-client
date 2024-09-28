@@ -1,125 +1,120 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #FFFFFF;
-    padding: 0;
-    margin: 0;
-    min-width: 920px;
-}
-
 .header {
-    width: calc(100% - 80px);
-    position: fixed;
-    top: 40px;
-    left: 40px;
-    right: 40px;
-    height: 47px;
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1824px;
+    height: 69px;
     background-color: #BCD0FF;
     border-radius: 15px;
     display: flex;
-    align-items: center;
     justify-content: center;
-    min-width: 400px;
+    align-items: center;
 }
 
 .header-text {
-    font-size: 30px;
-    font-weight: 600;
+    font-size: 40px;
     color: black;
-    white-space: nowrap;
-    padding: 0 320px;
-}
-
-.info-container {
-    top: calc(40px + 47px + 80px);
-    left: 100px;
-    right: 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 100px; /* circle과 info-box 사이의 간격 */
 }
 
 .circle {
-    width: 290px;
-    height: 290px;
+    position: absolute;
+    left: 280px;
+    top: 220px;
+    width: 550px;
+    height: 550px;
     border-radius: 50%;
-    background-color: #E0E0E0;
-    flex-shrink: 0;
+    background-color: #D9D9D9;
 }
 
-.info-box {
+.name, .level, .age, .email, .myWriting {
     display: flex;
-    flex-direction: column;
-    gap: 27px;
-    flex-grow: 1;
-    margin-left: 80px;
-}
-
-.name, .level, .age, .email {
-    width: 100%;
-    max-width: 330px;
-    height: 50px;
-    background-color: #BCD0FF;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    padding: 0 100px; /* 좌우 40px 패딩 추가 */
-    box-sizing: border-box; /* 패딩을 요소의 전체 크기에 포함 */
+    align-items: center;
 }
 
-.name-text, .level-text, .age-text, .email-text {
-    font-size: 20px;
+.name {
+    position: absolute;
+    right: 155px;
+    top: 230px;
+    width: 655px;
+    height: 80px;
+    border-radius: 15%;
+    background-color: #BCD0FF;
+}
+
+.name-text {
+    font-size: 30px;
     font-weight: 600;
-    color: #746F6F;
-    width: 100%; /* 텍스트가 전체 너비를 사용하도록 설정 */
-    text-align: center; /* 텍스트 중앙 정렬 */
+    color: black;
+    text-align: center;
+}
+
+.level {
+    position: absolute;
+    right: 155px;
+    top: 360px;
+    width: 655px;
+    height: 80px;
+    border-radius: 15%;
+    background-color: #BCD0FF;
+}
+
+.level-text {
+    font-size: 30px;
+    font-weight: 600;
+    color: black;
+    text-align: center;
+}
+
+.age {
+    position: absolute;
+    right: 155px;
+    top: 490px;
+    width: 655px;
+    height: 80px;
+    border-radius: 15%;
+    background-color: #BCD0FF;
+}
+
+.age-text {
+    font-size: 30px;
+    font-weight: 600;
+    color: black;
+    text-align: center;
+}
+
+.email {
+    position: absolute;
+    right: 155px;
+    top: 620px;
+    width: 655px;
+    height: 80px;
+    border-radius: 15%;
+    background-color: #BCD0FF;
+}
+
+.email-text {
+    font-size: 30px;
+    font-weight: 600;
+    color: black;
+    text-align: center;
 }
 
 .myWriting {
-    top: calc(40px + 47px + 80px + 290px + 50px * 4 + 65px); /* 모든 요소 아래에 위치 */
-    left: 100px;
-    right: 100px;
-    height: 31px; /* 이미지의 높이 */
-    background-color: #D9D9D9; /* 이미지의 색상 */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: absolute;
+    top: 900px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 655px;
+    height: 80px;
     border-radius: 15%;
+    background-color: #D9D9D9;
 }
 
 .myWriting-text {
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 600;
     color: black;
+    text-align: center;
 }
-
-@media (max-width: 1200px) {
-    .info-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-    }
-
-    .circle {
-        margin-bottom: 40px;
-        margin-top: 300px;
-    }
-
-    .info-box {
-        width: 100%;
-        margin-left: 0;
-        align-items: center;
-    }
-}
-
-@media (max-width: 920px) {
-    .info-container {
-        left: 40px;
-        right: 40px;
-    }
-}
-
-

@@ -3,6 +3,7 @@ import Register from './pages/Register'
 import Login from './pages/Login'
 import Mypage from './pages/myPage'
 import Main from './pages/Main'
+import Write from './pages/Write'
 import './App.css';
 
 const router = createBrowserRouter([
@@ -17,7 +18,8 @@ const router = createBrowserRouter([
   {
     path: "/Mypage",
     element: <Mypage/>
-
+  },
+  {
     path : '/',
     element: <Main/>
   },
