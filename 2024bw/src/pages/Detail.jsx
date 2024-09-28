@@ -27,6 +27,7 @@ export default function Detail() {
   };
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
+  const [isHeartActive, setIsHeartActive] = useState(false);
   // const [accountName, setAccountName] = useState("");
   // const [accountLevel, setAccountLevel] = useState("");
 
@@ -52,6 +53,9 @@ export default function Detail() {
     }
   };
 
+  const handleHeartClick = () => {
+    setIsHeartActive((prev) => !prev); // 하트 상태 토글
+  };
   return (
     <>
       <Banner>
@@ -78,7 +82,13 @@ export default function Detail() {
         </div>
       </div>
       <div className="menu">
-        <button className="heart">❤️</button>
+        <button
+          className={`heart ${isHeartActive ? "active" : ""}`}
+          onClick={handleHeartClick}
+          isActive={isHeartActive}
+        >
+          ❤️
+        </button>
         <button className="back" onClick={goBack}>
           뒤로가기
         </button>
