@@ -18,6 +18,9 @@
     color: #ffffff; /* 텍스트 색상 */
     font-weight: 1000;
     font-size: xxx-large;
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 .login_container {
@@ -120,4 +123,7 @@ input::placeholder {
     border: none;
     background-color: transparent;
     color: #3d3b9d;
+    &:hover {
+        cursor: pointer;
+    }
 }
