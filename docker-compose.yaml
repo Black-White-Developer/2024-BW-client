@@ -1,0 +1,5 @@
+services:
+  backend:
+    image: ioloolo/cokothon-idea-bank-frontend:latest
+    ports:
+      - "3000:3000"
