@@ -6,7 +6,6 @@ import Main from "./pages/Main";
 import Write from "./pages/Write";
 import List from "./pages/List";
 import Detail from "./pages/Detail";
-import { AuthProvider } from "./assets/AuthContext"; // Import the AuthProvider
 import "./App.css";
 
 import 'react-toastify/dist/ReactToastify.css';
@@ -69,22 +68,22 @@ function App() {
   }, []);
 
   return (
-    <AuthProvider> {/* Wrap the RouterProvider with AuthProvider */}
-      <RouterProvider router={router} /> {/* Correctly use RouterProvider here */}
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss={false}
-        draggable
-        pauseOnHover
-        theme="light"
-        transition={Bounce}
-      />
-    </AuthProvider>
+     <>
+       <RouterProvider router={router} /> {/* Correctly use RouterProvider here */}
+       <ToastContainer
+           position="top-right"
+           autoClose={3000}
+           hideProgressBar={false}
+           newestOnTop={false}
+           closeOnClick
+           rtl={false}
+           pauseOnFocusLoss={false}
+           draggable
+           pauseOnHover
+           theme="light"
+           transition={Bounce}
+       />
+     </>
   );
 }
 

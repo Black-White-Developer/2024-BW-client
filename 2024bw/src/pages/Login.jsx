@@ -2,12 +2,10 @@ import React, {useEffect, useState} from "react";
 import './Login.css';
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from '../assets/AuthContext';
 import axiosInstance from "../util/axiosInstance";
 import Cookies from "js-cookie";
 import {toast} from "react-toastify";
 import useUserStore from "../store/useUserStore";
-import axios from "axios"; // Import the useAuth hook
 
 const Wrapper = styled.div`
     display: flex;

@@ -17,58 +17,61 @@ const Wrapper = styled.div`
 `;
 
 const Banner = styled.div`
-  margin-top: 45px; /* NavBar와 붙이기 위해 마진 제거 */
-  background: linear-gradient(
-    to bottom,
-    #ffffff 40%,
-    #e3ecff
-  ); /* 그라데이션 적용 */
-  color: #3a70ff;
-  width: 100%;
-  height: 40vh; /* 높이를 줄임 */
-  display: flex;
-  flex-direction: row;
-  justify-content: center; /* 가운데 정렬 */
-  align-items: flex-start; /* 수직 가운데 정렬 */
-
-  div {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .box1 {
-    width: 35%;
-    align-items: center;
-    padding-left: 10%;
-
-    img {
-      margin-top: 35%;
-    }
-
-    text {
-      font-size: 100px;
-      font-weight: 600;
-    }
-  }
-
-  #box2 {
-    width: 50%; /* 가운데로 배치되도록 너비 조정 */
-    font-size: 30px;
-    font-weight: 600;
-    color: #000; /* 글자 색을 검은색으로 변경 */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* 가운데 정렬 */
-    justify-content: center;
-    margin: 0; /* 불필요한 마진 제거 */
-  }
-  .banner_text {
+    margin-top: 45px; /* NavBar와 붙이기 위해 마진 제거 */
+    background: linear-gradient(
+            to bottom,
+            #ffffff 40%,
+            #e3ecff
+    ); /* 그라데이션 적용 */
+    color: #3a70ff;
     width: 100%;
-    text-align: center;
+    height: 40vh; /* 높이를 줄임 */
     display: flex;
     flex-direction: row;
-  }
+    justify-content: center; /* 가운데 정렬 */
+    align-items: flex-start; /* 수직 가운데 정렬 */
+
+    div {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .box1 {
+        width: 35%;
+        align-items: center;
+        padding-left: 10%;
+
+        img {
+            margin-top: 35%;
+        }
+
+        text {
+            font-size: 100px;
+            font-weight: 600;
+        }
+    }
+
+    #box2 {
+        width: 50%; /* 가운데로 배치되도록 너비 조정 */
+        font-size: 30px;
+        font-weight: 600;
+        color: #000; /* 글자 색을 검은색으로 변경 */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* 가운데 정렬 */
+        justify-content: center;
+        /* 불필요한 마진 제거 */
+        margin: 0;
+    }
+
+    .banner_text {
+        width: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        margin-top: 50px;
+    }
 `;
 
 const Event = styled.div`

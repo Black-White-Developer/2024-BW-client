@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { useAuth } from '../assets/AuthContext';
 import useUserStore from "../store/useUserStore";
 import Cookies from "js-cookie";
 import axiosInstance from "../util/axiosInstance"; // Import the useAuth hook
