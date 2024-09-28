@@ -1,32 +1,7 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Register from "./pages/Register";
-import Login from "./pages/Login";
-import Write from "./pages/Write";
-import Detail from "./pages/Detail";
-import "./App.css";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Login />,
-  },
-  {
-    path: "/Register",
-    element: <Register />,
-  },
-  {
-    path: "Write",
-    element: <Write />,
-  },
-  {
-    path: "Detail",
-    element: <Detail />,
-  },
-]);
-
 import {RouterProvider, createBrowserRouter} from 'react-router-dom';
 import Register from './pages/Register'
 import Login from './pages/Login'
+import Mypage from './pages/myPage'
 import Main from './pages/Main'
 import './App.css';
 
@@ -40,9 +15,17 @@ const router = createBrowserRouter([
     element: <Register/>
   }, 
   {
+    path: "/Mypage",
+    element: <Mypage/>
+
     path : '/',
     element: <Main/>
+  },
+  {
+    path: "Write",
+    element: <Write />,
   }
+
 ])
 
 function App() {
