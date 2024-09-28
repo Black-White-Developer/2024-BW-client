@@ -15,7 +15,7 @@ const Nav = styled.nav`
     flex-direction: row;
     z-index: 1;
     box-sizing: border-box;
-
+    padding-top: 1%;
     label {
         cursor: pointer;
     }
