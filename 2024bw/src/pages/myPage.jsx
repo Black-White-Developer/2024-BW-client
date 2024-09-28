@@ -1,40 +1,48 @@
 import NavBar from "../components/navBar";
 
 import useUserStore from "../store/useUserStore";
-import { useNavigate } from "react-router-dom";
 
 import profile from "../image/profile-image.svg";
-import {toast} from "react-toastify";
-import {useEffect} from "react";
 
 const MyPage = () => {
     const { user } = useUserStore();
-    const navigate = useNavigate();
 
-    useEffect(() => {
-        if (!user) {
-            navigate('/login');
-            toast.error('유저 정보가 존재하지 않습니다.')
-        }
-    }, [])
+    if (!user) return null
 
     return (
         <>
             <NavBar/>
             <div className="w-full mt-20 flex flex-col gap-8 items-center">
-                <p className="w-2/3 text-center text-xl font-bold rounded-lg py-2 border shadow min-w-[400px]">{user.name}님의 페이지</p>
+                <p className="w-2/3 text-center text-xl font-bold rounded-lg py-2 border shadow min-w-[400px]">{user.nickname}님의 페이지</p>
 
-                <div className="w-2/3 flex gap-8 bg-white py-12 border shadow rounded-lg justify-center">
-                    <img src={user.avatar || profile} alt="profile" className="w-28 rounded-full"/>
+                <div className="w-2/3 flex gap-8 bg-white py-12 border shadow rounded-lg justify-center items-center">
+                    <img src={user.avatar || profile} alt="profile" className="w-40 h-40 rounded-full"/>
 
-                    <div className="flex flex-col gap-4">
-                        <input type="text" placeholder="닉네임" className="w-72 px-4 py-2 border rounded-lg shadow-sm" value={user.name} />
-                        <input type="number" placeholder="레벨" className="w-72 px-4 py-2 border rounded-lg shadow-sm" value={user.level} disabled={true}/>
-                        <input type="text" placeholder="이메일" className="w-72 px-4 py-2 border rounded-lg shadow-sm" value={user.email} disabled={true}/>
+                    <div className="flex flex-col gap-4 w-72">
+                        <div>
+                            <label className="text-sm">프로필</label>
+                            <input type="text" placeholder="닉네임"
+                                   className="w-full px-4 py-2 border rounded-lg shadow-sm" value={user.nickname}/>
+                        </div>
+
+                        <div>
+                            <label className="text-sm">계정 정보</label>
+                            <input type="number" placeholder="레벨"
+                                   className="w-full px-4 py-2 border rounded-lg shadow-sm" value={user.level}
+                                   disabled={true}/>
+                        </div>
+
+                        <div>
+                            <label className="text-sm">이메일</label>
+                            <input type="text" placeholder="이메일"
+                                   className="w-full px-4 py-2 border rounded-lg shadow-sm"
+                                   value={user.email} disabled={true}/>
+                        </div>
                     </div>
                 </div>
 
-                <p className="w-2/3 mt-12 text-center text-xl font-bold rounded-lg py-2 shadow border min-w-[400px]">내가 쓴 글</p>
+                <p className="w-2/3 mt-12 text-center text-xl font-bold rounded-lg py-2 shadow border min-w-[400px]">내가
+                    쓴 글</p>
 
                 <table className="w-2/3 border-collapse bg-white shadow rounded-lg overflow-hidden">
                     <thead className="bg-gray-100">

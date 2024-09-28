@@ -39,6 +39,10 @@ export default function Detail() {
   const fixedNickname = "하이"; // 고정된 닉네임
   const [isHeartActive, setIsHeartActive] = useState(false);
 
+  // const [accountName, setAccountName] = useState("");
+  // const [accountLevel, setAccountLevel] = useState("");
+
+
   const handleCommentChange = (e) => {
     setComment(e.target.value); // 댓글 입력 값 업데이트
   };
@@ -80,6 +84,7 @@ export default function Detail() {
       </div>
       <div className="menu">
         <button
+
             className={`heart ${isHeartActive ? "active" : ""}`}
             onClick={handleHeartClick}
             isActive={isHeartActive}
@@ -88,6 +93,7 @@ export default function Detail() {
           ❤️
           </button>
         <button className="back" onClick={goBack} id="detail_button">
+
           뒤로가기
         </button>
         <button className="apply" id="detail_button">매칭 신청</button>

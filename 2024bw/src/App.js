@@ -9,29 +9,33 @@ import Detail from "./pages/Detail";
 import { AuthProvider } from "./assets/AuthContext"; // Import the AuthProvider
 import "./App.css";
 
-import "react-toastify/dist/ReactToastify.css";
-import { Bounce, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import {Bounce, ToastContainer} from "react-toastify";
+import {useEffect} from "react";
+import axiosInstance from "./util/axiosInstance";
+import Cookies from 'js-cookie'
+import useUserStore from "./store/useUserStore";
 
 const router = createBrowserRouter([
   {
     path: "/login",
-    element: <Login />,
+    element: <Login />
   },
   {
     path: "/Register",
-    element: <Register />,
+    element: <Register />
   },
   {
     path: "/Mypage",
-    element: <Mypage />,
+    element: <Mypage />
   },
   {
-    path: "/",
-    element: <Main />,
+    path: '/',
+    element: <Main />
   },
   {
     path: "/Write",
-    element: <Write />,
+    element: <Write />
   },
   {
     path: "/list",
@@ -44,12 +48,29 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  const { setUser } = useUserStore();
+
+  useEffect(() => {
+    (async () => {
+      const token = Cookies.get('token');
+
+      if (token) {
+        axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+        const response = await axiosInstance.get('/auth/me');
+
+        if (response?.data?.content?.user) {
+            setUser(response.data.content.user);
+        } else {
+            Cookies.remove('token');
+            delete axiosInstance.defaults.headers.common['Authorization'];
+        }
+      }
+    })();
+  }, []);
+
   return (
-    <AuthProvider>
-      {" "}
-      {/* Wrap the RouterProvider with AuthProvider */}
-      <RouterProvider router={router} />{" "}
-      {/* Correctly use RouterProvider here */}
+    <AuthProvider> {/* Wrap the RouterProvider with AuthProvider */}
+      <RouterProvider router={router} /> {/* Correctly use RouterProvider here */}
       <ToastContainer
         position="top-right"
         autoClose={3000}
