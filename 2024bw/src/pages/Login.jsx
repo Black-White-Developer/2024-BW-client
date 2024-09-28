@@ -51,6 +51,10 @@ const Login = () => {
         }
     };
 
+    const goToMain = () => {
+        navigate("/");
+    }
+
     const goToRegister = () => {
         navigate("/Register");
     };

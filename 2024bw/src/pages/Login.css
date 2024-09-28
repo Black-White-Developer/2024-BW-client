@@ -82,7 +82,7 @@
 .login_input input {
     padding: 10px;
     height: 30px;
-    width: 200px;
+    width: 100%;
     background: transparent;
     border: none;
     outline: none;
