@@ -1,22 +1,23 @@
-body {
+.register_container-wrapper {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    background: linear-gradient(to right bottom, #5487FF 30%,#93b3ff 40%, #bed1ff 60%, #FFFFFF 100%);
-    padding: 0;
-    margin: 0;
-    height: 100vh; /* Viewport 높이를 100%로 설정 */
+    justify-content: center;
+    height: 100vh; /* 화면 중앙 정렬 */
+    position: relative; /* 자식 요소의 위치 설정을 위해 relative 설정 */
 }
 
 .logo {
     display: flex;
     justify-content: center;
-    padding-bottom: 15px;
+    align-items: center; /* 로고를 수직, 수평 가운데 정렬 */
+    position: absolute;
+    top: 15%; /* 화면 상단에서 로고의 위치를 조정 */
 }
 
 .logotext {
     margin-left: 1.5%;
-    color: #fff;
+    color: #ffffff; /* 로고 텍스트 색상 */
     font-weight: 1000;
     font-size: xx-large;
 }
@@ -26,24 +27,25 @@ body {
     flex-direction: column; /* 세로 정렬 */
     align-items: center;
     width: 350px;
-    height: 300px;
+    height: 400px;
     background-color: rgba(238, 243, 255, 0.8);
     border-radius: 12px;
     border: 1px solid #9ab6fd;
-    padding: 70px;
-    /* 주석 처리된 부분 삭제 */
+    padding: 50px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+    margin-top: 150px; /* 로고와 박스 사이의 간격 조정 */
 }
 
 .header {
-    margin-top: -30px;
     color: #3d3b9d;
     font-weight: 1000;
-    font-size: 17px;
+    font-size: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 4px;
     width: 100%;
+    margin-bottom: 10px;
 } 
 
 .underline {
@@ -54,10 +56,12 @@ body {
 }
 
 .inputs {
-    margin-top: 30px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     gap: 15px;
+    width: 100%;
+    align-items: center;
 }
 
 .input {
@@ -83,8 +87,8 @@ body {
 
 .submit-container {
     display: flex;
-    justify-content: center; /* 중앙 정렬 */
-    margin: 40px auto;
+    justify-content: center;
+    margin: 30px auto;
 }
 
 input::placeholder {

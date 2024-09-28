@@ -1,52 +1,36 @@
-body {
+.login_container-wrapper {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    background: linear-gradient(to right bottom, #5487FF 30%,#93b3ff 40%, #bed1ff 60%, #FFFFFF 100%);
-    padding: 0;
-    margin: 0;
-    height: 100vh; /* Viewport 높이를 100%로 설정 */
+    justify-content: center;
+    height: 100vh; /* 화면 가운데 정렬을 위해 전체 높이를 사용 */
 }
 
 .login_logo {
     display: flex;
     justify-content: center;
-    padding-bottom: 20px;
     align-items: center;
+    margin-bottom: 20px; /* 로그인 박스와의 간격 */
 }
 
-
-
-
 .login_logotext {
-    margin-left: 2%;
-    color: #fff;
+    color: #ffffff; /* 텍스트 색상 */
     font-weight: 1000;
     font-size: xxx-large;
 }
 
 .login_container {
-    /* display: flex;
-    width: 400px;
-    height: 400px;
-    background-color: rgba(236, 227, 206, 0.65);
-    flex-direction: column;
-    margin: auto;
-    margin-left: 100%;
-    /* margin-top: 200px; */
-    /* padding-bottom: 30px; */ 
     border: 1px solid #9ab6fd;
     width: 400px;
     height: 300px;
     border-radius: 12px;
     padding: 30px;
-    display:flex;
+    display: flex;
     flex-direction: column;
     background-color: rgba(238, 243, 255, 0.8);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
 }
 
-/*647c66 */
-/*556639 */
 .login_header {
     margin-bottom: auto;
     justify-content: center;
@@ -54,7 +38,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 4px;
-} 
+}
 
 .login_btn {
     justify-content: center;
@@ -72,6 +56,7 @@ body {
     background-color: #628dfc;
     border-radius: 9px;
 }
+
 .login_inputs {
     justify-content: center;
     align-items: center;

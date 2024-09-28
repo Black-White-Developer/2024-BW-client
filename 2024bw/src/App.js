@@ -2,11 +2,12 @@ import {RouterProvider, createBrowserRouter} from 'react-router-dom';
 import Register from './pages/Register'
 import Login from './pages/Login'
 import Mypage from './pages/myPage'
+import Main from './pages/Main'
 import './App.css';
 
 const router = createBrowserRouter([
   {
-    path :"/",
+    path :"/login",
     element: <Login/>
   }, 
   {
@@ -16,13 +17,19 @@ const router = createBrowserRouter([
   {
     path: "/Mypage",
     element: <Mypage/>
+
+    path : '/',
+    element: <Main/>
+  },
+  {
+    path: "Write",
+    element: <Write />,
   }
+
 ])
 
 function App() {
-  return (
-    <RouterProvider router={router}/>
-  )
+  return <RouterProvider router={router} />;
 }
 // function App() {
 //   return (

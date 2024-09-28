@@ -1,6 +1,17 @@
 import React, {useState, useRef } from "react";
+import styled from "styled-components";
 import './Register.css'
 import { Form, useNavigate } from "react-router-dom";
+
+const Wrapper = styled.div `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right bottom, #5487FF 30%,#93b3ff 40%, #bed1ff 60%, #FFFFFF 100%);
+    padding: 0;
+    margin: 0;
+    height: 100vh; /* Viewport 높이를 100%로 설정 */
+`
 
 const Register = () => {
 
@@ -32,8 +43,8 @@ const Register = () => {
     };
 
     return (
-
         <React.Fragment>
+            <Wrapper className="register-container-wrapper">
             <div className="logo">
                 <span className="logotext">IB</span>
             </div>
@@ -79,8 +90,9 @@ const Register = () => {
                     <div className="submit" onClick={onSubmit}>회원가입</div>
                 </div>
             </div>
-
+            </Wrapper>
         </React.Fragment>
+
     );
 }
 

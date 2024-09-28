@@ -1,8 +1,20 @@
 import React, { useEffect, useState } from "react";
+import style from 'styled-components';
 import './Login.css'
 // import axios from 'axios';
+import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
+const Wrapper = styled.div `
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right bottom, #5487FF 30%,#93b3ff 40%, #bed1ff 60%, #FFFFFF 100%);
+    padding: 0;
+    margin: 0;
+    height: 100vh; /* Viewport 높이를 100%로 설정 */
+`
 const Login = () => {
     const navigate = useNavigate();
     // const dispatch = useDispatch();
@@ -70,6 +82,7 @@ const Login = () => {
     return (
 
         <React.Fragment>
+            <Wrapper className="login_container-wrapper">
             <div className="login_logo">
                 <span className="login_logotext">IB</span>
             </div>
@@ -94,6 +107,7 @@ const Login = () => {
                 </div>
 
             </div>
+            </Wrapper>
         </React.Fragment>
     );
 }
