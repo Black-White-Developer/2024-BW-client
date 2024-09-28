@@ -1,0 +1,137 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right bottom, #5487FF 30%,#93b3ff 40%, #bed1ff 60%, #FFFFFF 100%);
+    padding: 0;
+    margin: 0;
+    height: 100vh; /* Viewport 높이를 100%로 설정 */
+}
+
+.login_logo {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+    align-items: center;
+}
+
+
+
+
+.login_logotext {
+    margin-left: 2%;
+    color: #fff;
+    font-weight: 1000;
+    font-size: xxx-large;
+}
+
+.login_container {
+    /* display: flex;
+    width: 400px;
+    height: 400px;
+    background-color: rgba(236, 227, 206, 0.65);
+    flex-direction: column;
+    margin: auto;
+    margin-left: 100%;
+    /* margin-top: 200px; */
+    /* padding-bottom: 30px; */ 
+    border: 1px solid #9ab6fd;
+    width: 400px;
+    height: 300px;
+    border-radius: 12px;
+    padding: 30px;
+    display:flex;
+    flex-direction: column;
+    background-color: rgba(238, 243, 255, 0.8);
+}
+
+/*647c66 */
+/*556639 */
+.login_header {
+    margin-bottom: auto;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+} 
+
+.login_btn {
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+    background-color: transparent;
+    color: #3d3b9d;
+    font-weight: 1000;
+    border: none;
+}
+
+.login_underline {
+    width: 100px;
+    height: 2.5px;
+    background-color: #628dfc;
+    border-radius: 9px;
+}
+.login_inputs {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login_input {
+    display: flex;
+    align-items: center;
+    width: 300px;
+    height: 35px;
+    background: transparent;
+    border: 1px solid #6663FF;
+    border-radius: 12px;
+}
+
+.login_input input {
+    padding: 10px;
+    height: 30px;
+    width: 200px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #3d3b9d;
+    font-size: 15px;
+}
+
+.login_submit-container {
+    margin: auto;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+input::placeholder {
+    color: #3d3b9d;
+    font-weight: 500;
+}
+
+.login_submit {
+    margin: auto;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 40px;
+    color: #fff;
+    background: #6663FF;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.register {
+    margin-top: 1vh;
+    border: none;
+    background-color: transparent;
+    color: #3d3b9d;
+}
