@@ -1,13 +1,3 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(to right bottom, #5487FF 30%,#93b3ff 40%, #bed1ff 60%, #FFFFFF 100%);
-    padding: 0;
-    margin: 0;
-    height: 100vh; /* Viewport 높이를 100%로 설정 */
-}
-
 .logo {
     display: flex;
     justify-content: center;
