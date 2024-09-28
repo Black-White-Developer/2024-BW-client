@@ -1,21 +1,36 @@
 import NavBar from "../components/navBar";
 
+import useUserStore from "../store/useUserStore";
+import { useNavigate } from "react-router-dom";
+
 import profile from "../image/profile-image.svg";
+import {toast} from "react-toastify";
+import {useEffect} from "react";
 
 const MyPage = () => {
+    const { user } = useUserStore();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!user) {
+            navigate('/login');
+            toast.error('유저 정보가 존재하지 않습니다.')
+        }
+    }, [])
+
     return (
         <>
             <NavBar/>
             <div className="w-full mt-20 flex flex-col gap-8 items-center">
-                <p className="w-2/3 text-center text-xl font-bold rounded-lg py-2 border shadow min-w-[400px]">()님의 페이지</p>
+                <p className="w-2/3 text-center text-xl font-bold rounded-lg py-2 border shadow min-w-[400px]">{user.name}님의 페이지</p>
 
                 <div className="w-2/3 flex gap-8 bg-white py-12 border shadow rounded-lg justify-center">
-                    <img src={profile} alt="profile" className="w-28 rounded-full"/>
+                    <img src={user.avatar || profile} alt="profile" className="w-28 rounded-full"/>
 
                     <div className="flex flex-col gap-4">
-                        <input type="text" placeholder="닉네임" className="w-72 px-4 py-2 border rounded-lg shadow-sm"/>
-                        <input type="number" placeholder="레벨" className="w-72 px-4 py-2 border rounded-lg shadow-sm" disabled={true}/>
-                        <input type="text" placeholder="이메일" className="w-72 px-4 py-2 border rounded-lg shadow-sm" disabled={true}/>
+                        <input type="text" placeholder="닉네임" className="w-72 px-4 py-2 border rounded-lg shadow-sm" value={user.name} />
+                        <input type="number" placeholder="레벨" className="w-72 px-4 py-2 border rounded-lg shadow-sm" value={user.level} disabled={true}/>
+                        <input type="text" placeholder="이메일" className="w-72 px-4 py-2 border rounded-lg shadow-sm" value={user.email} disabled={true}/>
                     </div>
                 </div>
 
