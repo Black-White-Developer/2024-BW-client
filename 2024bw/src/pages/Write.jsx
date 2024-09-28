@@ -38,9 +38,7 @@ const Banner = styled.div`
   }
 `;
 
-
 const Write = () => {
-
   const navigate = useNavigate();
 
   const [title, setTitle] = useState(""); // 제목 상태
@@ -51,12 +49,13 @@ const Write = () => {
     e.preventDefault(); // 기본 제출 동작 방지
     console.log("제목:", title);
     console.log("노트 내용:", note);
-    navigate('/Detail/{id}')
+    navigate("/Detail/{id}");
   };
   return (
     <>
       <Wrapper>
         <NavBar />
+        <br />
         <Banner>
           <text>IB</text>
         </Banner>

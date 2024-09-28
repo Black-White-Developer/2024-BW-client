@@ -5,13 +5,17 @@
   width: 100%;
   padding: 20px 40px;
   box-sizing: border-box;
+  display: flex; /* Flexbox 사용 */
+  flex-direction: column; /* 세로 방향으로 정렬 */
+  align-items: center; /* 수평 가운데 정렬 */
+  justify-content: center;
 }
 
 .title {
   width: 100%;
   margin: 0;
   :focus {
-    outline:none;
+    outline: none;
   }
 }
 
@@ -24,7 +28,7 @@
   border-radius: 5px;
   padding: 10px;
   box-sizing: border-box;
-  border: 1px solid #746F6F;
+  border: 1px solid #746f6f;
 }
 
 .note {
@@ -33,7 +37,7 @@
   width: 100%;
   margin: 0;
   :focus {
-    outline:none;
+    outline: none;
   }
 }
 
@@ -52,7 +56,7 @@
 }
 
 .regi {
-  width: 6%;
+  width: 10%;
   color: #272598;
   font-size: large;
   border-radius: 5px;
@@ -63,5 +67,5 @@
   float: right;
   &:hover {
     cursor: pointer;
-  };
+  }
 }
