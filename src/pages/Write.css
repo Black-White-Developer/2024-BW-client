@@ -1,0 +1,70 @@
+.writeall {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 40px;
+  box-sizing: border-box;
+  display: flex; /* Flexbox 사용 */
+  flex-direction: column; /* 세로 방향으로 정렬 */
+  align-items: center; /* 수평 가운데 정렬 */
+  justify-content: center;
+}
+
+.title {
+  width: 100%;
+  margin: 0;
+  :focus {
+    outline: none;
+  }
+}
+
+.titletext {
+  color: #3735a3;
+  font-family: NanumSquareRound;
+  width: 80vw;
+  background-color: transparent;
+  font-size: 24px;
+  border-radius: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.note {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  :focus {
+    outline: none;
+  }
+}
+
+.notetext {
+  border: none;
+  font-family: NanumSquareRound, serif;
+  width: 80vw;
+  height: 300px;
+  font-size: 18px;
+  color: #3735a3;
+  border-radius: 5px;
+  resize: none;
+  box-sizing: border-box;
+}
+
+.regi {
+  width: 10%;
+  color: white;
+  font-size: large;
+  border-radius: 5px;
+  background-color: #5985fa;
+  margin-top: 10px;
+  padding: 1%;
+  border: none;
+  float: right;
+  cursor: pointer;
+  &:hover {
+    background-color: #326aff;
+
+  }
+}
