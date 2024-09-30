@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       -   name: Checkout repository
-          run: git clone https://github.com/Black-White-Developer/2024-BW-client.git Frontend
+          run: git clone https://github.com/Cokothono-Idea-Bank/Frontend.git
 
       -   name: Login to Docker Hub
           uses: docker/login-action@v3
